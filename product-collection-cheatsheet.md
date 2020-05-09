@@ -1,4 +1,6 @@
-# Import statement
+# Product Collection Cheatsheet
+
+## Import statement
 
 ```php
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory as ProductCollectionFactory;
@@ -19,7 +21,7 @@ public function __construct(
 }
 ```
 
-# Product Types
+## Product Types
 
 ```php
 \Magento\Catalog\Model\Product\Type::TYPE_SIMPLE
@@ -30,7 +32,7 @@ public function __construct(
 \Magento\GroupedProduct\Model\Product\Type\Grouped::TYPE_CODE
 ```
 
-# Visibility filter
+## Visibility filter
 
 ```php
 /**
@@ -49,7 +51,7 @@ $collection->setVisibility($this->productVisibility->getVisibleInSiteIds());
 [...]
 ```
 
-# Filters
+## Filters
 
 ```php
 // Is Equal To
@@ -91,19 +93,19 @@ $collection->addAttributeToFilter('description', 'notnull');
 $collection->addAttributeToFilter('description', ['notnull' => true]);
 ```
 
-# Add Price Data
+## Add Price Data
 
 ```php
 $collection->addPriceData();
 ```
 
-# Simple filter
+## Simple filter
 
 ```php
 $collection->addAttributeToFilter('type_id', $typeFilter);
 ```
 
-# More complex filter
+## More complex filter
 
 ```php
 $collection->addAttributeToFilter(
@@ -112,7 +114,7 @@ $collection->addAttributeToFilter(
 );
 ```
 
-# Or filter
+## Or filter
 
 ```php
 $collection->addAttributeToFilter([
@@ -127,7 +129,7 @@ $collection->addAttributeToFilter([
 ]);
 ```
 
-# In Stock Filter
+## In Stock Filter
 
 ```php
 /**
@@ -146,7 +148,7 @@ $this->stockFilter->addInStockFilterToCollection($collection);
 [...]
 ```
 
-# Get Price Data
+## Get Price Data
 
 ```php
 $collection->getMaxPrice();
@@ -154,32 +156,44 @@ $collection->getMinPrice();
 $collection->getPriceStandardDeviation();
 $collection->getPricesCount();
 ```
-  	
-# Create
 
-    $collection = $this->productCollectionFactory->create();
+## Create
 
-# Filter by Product ID
+```text
+$collection = $this->productCollectionFactory->create();
+```
 
-    $collection->addIdFilter($productId);
+## Filter by Product ID
 
-#  Filter by Store ID
+```text
+$collection->addIdFilter($productId);
+```
 
-    $collection->addStoreFilter($storeId);
+## Filter by Store ID
 
-# Select Attribute
+```text
+$collection->addStoreFilter($storeId);
+```
 
-    $collection->addAttributeToSelect($attributeCode);
+## Select Attribute
 
-# Get first item
+```text
+$collection->addAttributeToSelect($attributeCode);
+```
 
-    return $collection->getFirstItem();
+## Get first item
 
-# Get raw attribute value
+```text
+return $collection->getFirstItem();
+```
 
-    return $collection->getFirstItem()->getData($attributeCode);
+## Get raw attribute value
 
-# Status Filter
+```text
+return $collection->getFirstItem()->getData($attributeCode);
+```
+
+## Status Filter
 
 ```php
 /**
@@ -201,39 +215,51 @@ $collection->addAttributeToFilter(
 ]);
 ```
 
-# Category Filter
+## Category Filter
 
-    $collection->addCategoryFilter($category);
+```text
+$collection->addCategoryFilter($category);
+```
 
-# Return only IDs
+## Return only IDs
 
-    return $collection->getAllIds();
+```text
+return $collection->getAllIds();
+```
 
-# Debug Query
+## Debug Query
 
 ```php
 echo (string) $collection->getSelect();
 $collection->printLogQuery(true);
 ```
 
-# Add Media
+## Add Media
 
-    $collection->addMediaGalleryData();
+```text
+$collection->addMediaGalleryData();
+```
 
-# Add Tier Price Data
+## Add Tier Price Data
 
 ```php
 $collection->addTierPriceData();
 $collection->addTierPriceDataByGroupId($customerGroupId);
 ```
 
-# Add Category IDs
-    $collection->addCategoryIds();
+## Add Category IDs
 
-# Add Website Names
-    $collection->addWebsiteNamesToResult();
+```text
+$collection->addCategoryIds();
+```
 
-# Join Stock Qty to collection
+## Add Website Names
+
+```text
+$collection->addWebsiteNamesToResult();
+```
+
+## Join Stock Qty to collection
 
 ```php
 $collection->joinField(
@@ -246,13 +272,13 @@ $collection->joinField(
 );
 ```
 
-# Generic Collection
+## Generic Collection
 
 ```php
 // Sort Collection
 // Order by Attribute Ascending
 $collection->setOrder('price', 'ASC');
- 
+
 // Order by Attribute Descending
 $collection->setOrder('name', 'DESC');
 
@@ -262,23 +288,38 @@ $collection->setOrder('rand()');
 // Limit Collection
 $collection->setPageSize(10);
 $collection->setCurPage(1);
- 
+
 // Count Results
 $collection->count();
 ```
 
-# Add URL data
-    $collection->addUrlRewrite($categoryId);
+## Add URL data
 
-# Add Tax Percents
-    $collection->addTaxPercents();
+```text
+$collection->addUrlRewrite($categoryId);
+```
 
-# Add Options
-    $collection->addOptionsToResult();
+## Add Tax Percents
 
-# Add Sort
-    $collection->addAttributeToSort('name', 'DESC');
+```text
+$collection->addTaxPercents();
+```
 
-# Free Up Memory
-    $collection->clear();
-    
+## Add Options
+
+```text
+$collection->addOptionsToResult();
+```
+
+## Add Sort
+
+```text
+$collection->addAttributeToSort('name', 'DESC');
+```
+
+## Free Up Memory
+
+```text
+$collection->clear();
+```
+
