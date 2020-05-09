@@ -245,7 +245,86 @@ public function getProducts(array $productIds): array
 ```
 
 ## Advanced Search
-### Useful Constants
+
+```php
+/**
+ * @var \Magento\Catalog\Api\ProductRepositoryInterface
+ */
+private $productRepository;
+
+/**
+ * @var \Magento\Framework\Api\SearchCriteriaBuilder
+ */
+private $searchCriteriaBuilder;
+
+/**
+ * @var \Magento\Framework\Api\FilterBuilder
+ */
+private $filterBuilder;
+
+/**
+ * @var \Magento\Framework\Api\SortOrderFactory
+ */
+private $sortOrder;
+
+/**
+ * @param \Magento\Catalog\Api\ProductRepositoryInterface $productRepository
+ * @param \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder
+ * @param \Magento\Framework\Api\FilterBuilder $filterBuilder
+ * @param \Magento\Framework\Api\SortOrderFactory $sortOrder
+ */
+public function __construct(
+    \Magento\Catalog\Api\ProductRepositoryInterface $productRepository,
+    \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder,
+    \Magento\Framework\Api\FilterBuilder $filterBuilder,
+    \Magento\Framework\Api\SortOrderFactory $sortOrder
+) {
+    $this->productRepository = $productRepository;
+    $this->searchCriteriaBuilder = $searchCriteriaBuilder;
+    $this->filterBuilder = $filterBuilder;
+    $this->sortOrder = $sortOrder;
+}
+
+/**
+ * Retrieves products to be sent
+ * @param array $excludedIds
+ * @param array $filterIds
+ * @param int $page
+ * @param int $pageSize
+ * @return ProductInterface[]
+ * @throws \Magento\Framework\Exception\InputException
+ */
+public function retrieve(
+    array $excludedIds,
+    array $filterIds,
+    int $page = 1,
+    int $pageSize = 100
+) : array {
+    $this->searchCriteriaBuilder->addFilter('type_id', [
+        \Magento\Catalog\Model\Product\Type::TYPE_SIMPLE,
+        \Magento\Downloadable\Model\Product\Type::TYPE_DOWNLOADABLE
+    ], 'in');
+
+    if (count($filterIds)) {
+        $this->searchCriteriaBuilder->addFilter('entity_id', $filterIds, 'in');
+    }
+
+    if (count($excludedIds)) {
+        $this->searchCriteriaBuilder->addFilter('entity_id', $excludedIds, 'nin');
+    }
+
+    $sortOrder = $this->sortOrder->setField('updated_at')
+        ->setDirection(\Magento\Framework\Api\SortOrder::SORT_DESC);
+    $this->searchCriteriaBuilder->setSortOrders([$sortOrder]);
+
+    $this->searchCriteriaBuilder->setCurrentPage($page);
+    $this->searchCriteriaBuilder->setPageSize($pageSize);
+    $searchCriteria = $this->searchCriteriaBuilder->create();
+    return $this->productRepository->getList($searchCriteria)->getItems();
+}
+```
+
+## Useful Constants
 
 ```php
 \Magento\Framework\Api\SortOrder::SORT_ASC
