@@ -4,6 +4,6 @@
 
 ---
 
-* [Product Repository Cheatsheet](PPRODUCT-REPOSITORY-CHEATSHEET.md)
+* [Product Repository Cheatsheet](PRODUCT-REPOSITORY-CHEATSHEET.md)
 * [Untitled](untitled.md)
 
