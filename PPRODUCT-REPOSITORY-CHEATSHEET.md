@@ -6,7 +6,8 @@ use Magento\Catalog\Api\Data\ProductInterfaceFactory;
 ```
 
 # Constructor
-```
+
+```php
 /**
  * @var ProductRepositoryInterface
  */
@@ -31,7 +32,7 @@ public function __construct(
 
 ## Product Types
 
-```
+```php
 \Magento\Catalog\Model\Product\Type::TYPE_SIMPLE
 \Magento\Catalog\Model\Product\Type::TYPE_BUNDLE
 \Magento\Catalog\Model\Product\Type::TYPE_VIRTUAL
@@ -55,25 +56,34 @@ public function __construct(
 */
 ```
 
-Get info about product by product id
-$product = $this->productRepositoryInterface->getById($productId);
+## Get info about product by product id
+
+    $product = $this->productRepositoryInterface->getById($productId);
+    
+```php    
 /**
 * @param int $productId
 * @param bool $editMode
 * @param int|null $storeId
-* @param bool $force­Reload
-* @return \Magen­to­\Cat­alo­g\A­pi­\Dat­a\P­rod­uct­Int­erface
-* @throws \Magen­to­\Fra­mew­ork­\Ex­cep­tio­n\N­oSu­chE­nti­tyE­xce­ption
+* @param bool $forceReload
+* @return \Magento\Catalog\Api\Data\ProductInterface
+* @throws \Magento\Framework\Exception\NoSuchEntityException
 */
-Delete by SKU
-$this->productRepositoryInterface->deleteById($sku);
+
+## Delete by SKU
+
+    $this->productRepositoryInterface->deleteById($sku);
+
+```php
 /**
 * @param string $sku
 * @return bool Will returned True if deleted
-* @throws \Magen­to­\Fra­mew­ork­\Ex­cep­tio­n\N­oSu­chE­nti­tyE­xce­ption
-* @throws \Magen­to­\Fra­mew­ork­\Ex­cep­tio­n\S­tat­eEx­ception
+* @throws \Magento\Framework\Exception\NoSuchEntityException
+* @throws \Magento\Framework\Exception\StateException
 */
-Create New Product
+
+
+## Create New Product
 $product = $this->productInterfaceFactory
     ->create()
     ->setSku('SKU');
