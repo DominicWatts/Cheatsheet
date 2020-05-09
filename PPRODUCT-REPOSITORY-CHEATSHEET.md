@@ -1,7 +1,3 @@
----
-description: Magento 2 Product Repository Cheatsheet - Product Repositories usefuls
----
-
 # Product Repository Cheatsheet
 
 #### Import Statement <a id="title_22284_86396"></a>
