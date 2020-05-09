@@ -105,7 +105,7 @@ $collection->addAttributeToFilter('type_id', $typeFilter);
 
 # More complex filter
 
-```
+```php
 $collection->addAttributeToFilter(
     'status',
     ['in' => 'processing']
@@ -115,7 +115,6 @@ $collection->addAttributeToFilter(
 # Or filter
 
 ```php
-// Or
 $collection->addAttributeToFilter([
     [
         'attribute' => 'download_link',
@@ -136,7 +135,7 @@ $collection->addAttributeToFilter([
  */
 protected $stockHelper;
 
- public function __construct(
+public function __construct(
      \Magento\CatalogInventory\Helper\Stock $stockHelper
 ) {
      $this->stockHelper = $stockHelper;
