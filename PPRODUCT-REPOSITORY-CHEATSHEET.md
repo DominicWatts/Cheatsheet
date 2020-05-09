@@ -81,19 +81,29 @@ public function __construct(
 * @throws \Magento\Framework\Exception\NoSuchEntityException
 * @throws \Magento\Framework\Exception\StateException
 */
-
+```
 
 ## Create New Product
+
+```php
 $product = $this->productInterfaceFactory
     ->create()
     ->setSku('SKU');
 // other required attributes
 $product = $this->productRepositoryInterface->save($product);
-Update Existing Product
+```
+
+## Update Existing Product
+
+```php
 $product = $this->productRepositoryInterface->get('SKU');
 $product->setStatus(\Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_DISABLED);
 $updated = $this->productRepositoryInterface->save($product);
-Advanced Search Filter Group
+```
+
+## Advanced Search Filter Group
+
+```php
 /**
  * @var \Magento\Catalog\Api\ProductRepositoryInterface
  */
@@ -171,8 +181,10 @@ $filterGroup2 = $this->filterGroupBuilder
 $searchCriteria = $this->searchCriteriaBuilder->create();
 $searchCriteria->setFilterGroups([$filterGroup1, $filterGroup2]);
 $this->productRepository->getList($searchCriteria)->getItems();
-The code above creates a Search Criteria with the Filters put together in the following way: (url like %magen­to.com OR store_id eq 1) AND (url_type eq 1)
-Add a New Block Here
+```
+
+    The code above creates a Search Criteria with the Filters put together in the following way: (url like %magen­to.com OR store_id eq 1) AND (url_type eq 1)
+
 	  	
 Search Criteria
 /**
