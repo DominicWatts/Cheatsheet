@@ -1,11 +1,17 @@
-# Import Statement
+---
+description: Magento 2 Product Repositories usefuls
+---
+
+# PRODUCT-REPOSITORY-CHEATSHEET
+
+## Import Statement
 
 ```php
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Catalog\Api\Data\ProductInterfaceFactory;
 ```
 
-# Constructor
+## Constructor
 
 ```php
 /**
@@ -30,7 +36,7 @@ public function __construct(
 }
 ```
 
-# Product Types
+## Product Types
 
 ```php
 \Magento\Catalog\Model\Product\Type::TYPE_SIMPLE
@@ -41,9 +47,11 @@ public function __construct(
 \Magento\GroupedProduct\Model\Product\Type\Grouped::TYPE_CODE
 ```
 
-# Get info about product by product SKU
+## Get info about product by product SKU
 
-    $product = $this->productRepositoryInterface->get($sku);
+```text
+$product = $this->productRepositoryInterface->get($sku);
+```
 
 ```php
 /**
@@ -56,11 +64,13 @@ public function __construct(
 */
 ```
 
-# Get info about product by product id
+## Get info about product by product id
 
-    $product = $this->productRepositoryInterface->getById($productId);
-    
-```php    
+```text
+$product = $this->productRepositoryInterface->getById($productId);
+```
+
+```php
 /**
 * @param int $productId
 * @param bool $editMode
@@ -71,9 +81,11 @@ public function __construct(
 */
 ```
 
-# Delete by SKU
+## Delete by SKU
 
-    $this->productRepositoryInterface->deleteById($sku);
+```text
+$this->productRepositoryInterface->deleteById($sku);
+```
 
 ```php
 /**
@@ -84,7 +96,7 @@ public function __construct(
 */
 ```
 
-# Create New Product
+## Create New Product
 
 ```php
 $product = $this->productInterfaceFactory
@@ -94,7 +106,7 @@ $product = $this->productInterfaceFactory
 $product = $this->productRepositoryInterface->save($product);
 ```
 
-# Update Existing Product
+## Update Existing Product
 
 ```php
 $product = $this->productRepositoryInterface->get('SKU');
@@ -102,7 +114,7 @@ $product->setStatus(\Magento\Catalog\Model\Product\Attribute\Source\Status::STAT
 $updated = $this->productRepositoryInterface->save($product);
 ```
 
-# Advanced Search Filter Group
+## Advanced Search Filter Group
 
 ```php
 /**
@@ -184,10 +196,11 @@ $searchCriteria->setFilterGroups([$filterGroup1, $filterGroup2]);
 $this->productRepository->getList($searchCriteria)->getItems();
 ```
 
-    The code above creates a Search Criteria with the Filters put together in the following way: (url like %magen­to.com OR store_id eq 1) AND (url_type eq 1)
+```text
+The code above creates a Search Criteria with the Filters put together in the following way: (url like %magen­to.com OR store_id eq 1) AND (url_type eq 1)
+```
 
-	  	
-# Search Criteria
+## Search Criteria
 
 ```php
 /**
@@ -227,7 +240,7 @@ public function getProducts(array $productIds): array
 }
 ```
 
-# Useful constants
+## Useful constants
 
 ```php
 \Magento\Catalog\Api\Data\ProductInterface::SKU
@@ -244,7 +257,7 @@ public function getProducts(array $productIds): array
 \Magento\Catalog\Api\Data\ProductInterface::TIER_PRICE
 ```
 
-# Advanced Search
+## Advanced Search
 
 ```php
 /**
@@ -324,16 +337,17 @@ public function retrieve(
 }
 ```
 
-# More Useful Constants
+## More Useful Constants
 
 ```php
 \Magento\Framework\Api\SortOrder::SORT_ASC
 \Magento\Framework\Api\SortOrder::SORT_DESC
 ```
 
-# Print Query String
+## Print Query String
 
 ```php
 $products = $this->productRepositoryInterface->getList($searchCriteria)
 echo $products->getSelect()->assemble();
 ```
+

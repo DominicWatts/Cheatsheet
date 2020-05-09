@@ -1,4 +1,5 @@
 # Magento 2 Cheat Sheets
 
-* [Product Repository Cheatsheet](PRODUCT-REPOSITORY-CHEATSHEET.md)
+* [Product Repository Cheatsheet](product-repository-cheatsheet.md)
 * [Untitled](untitled.md)
+
