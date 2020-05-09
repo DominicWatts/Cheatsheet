@@ -1,6 +1,5 @@
 # Table of contents
 
-* [Introduction](README.md)
-* [Magento 2 Cheat Sheets](magento-2-cheat-sheets.md)
-* [PRODUCT-REPOSITORY-CHEATSHEET](product-repository-cheatsheet.md)
+* [Magento 2 Cheatsheets](README.md)
+* [Product Repository Cheatsheet](product-repository-cheatsheet.md)
 

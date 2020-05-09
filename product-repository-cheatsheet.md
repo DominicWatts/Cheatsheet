@@ -2,7 +2,7 @@
 description: Magento 2 Product Repositories usefuls
 ---
 
-# PRODUCT-REPOSITORY-CHEATSHEET
+# Product Repository Cheatsheet
 
 ## Import Statement
 
