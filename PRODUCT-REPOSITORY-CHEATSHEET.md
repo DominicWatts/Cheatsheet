@@ -69,6 +69,7 @@ public function __construct(
 * @return \Magento\Catalog\Api\Data\ProductInterface
 * @throws \Magento\Framework\Exception\NoSuchEntityException
 */
+```
 
 ## Delete by SKU
 
@@ -186,7 +187,9 @@ $this->productRepository->getList($searchCriteria)->getItems();
     The code above creates a Search Criteria with the Filters put together in the following way: (url like %magen­to.com OR store_id eq 1) AND (url_type eq 1)
 
 	  	
-Search Criteria
+## Search Criteria
+
+```php
 /**
  * @var ProductRepositoryInterface
  */
@@ -222,7 +225,11 @@ public function getProducts(array $productIds): array
     $count = $products->getTotalCount();
     return $products;
 }
-Useful constants
+```
+
+## Useful constants
+
+```php
 \Magento\Catalog\Api\Data\ProductInterface::SKU
 \Magento\Catalog\Api\Data\ProductInterface::NAME
 \Magento\Catalog\Api\Data\ProductInterface::PRICE
@@ -235,10 +242,19 @@ Useful constants
 \Magento\Catalog\Api\Data\ProductInterface::UPDATED_AT
 \Magento\Catalog\Api\Data\ProductInterface::MEDIA_GALLERY
 \Magento\Catalog\Api\Data\ProductInterface::TIER_PRICE
-Advanced Search
-Useful Constants
+```
+
+## Advanced Search
+### Useful Constants
+
+```php
 \Magento\Framework\Api\SortOrder::SORT_ASC
 \Magento\Framework\Api\SortOrder::SORT_DESC
-Print Query String
+```
+
+### Print Query String
+
+```php
 $products = $this->productRepositoryInterface->getList($searchCriteria)
 echo $products->getSelect()->assemble();
+```
