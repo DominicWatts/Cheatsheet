@@ -136,27 +136,27 @@ private $filterGroupBuilder;
 /**
  * @var \Magento\Framework\Api\SortOrderFactory
  */
-private $sortOrder;
+private $sortOrderFactory;
 
 /**
  * @param \Magento\Catalog\Api\ProductRepositoryInterface $productRepository
  * @param \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder
  * @param \Magento\Framework\Api\FilterBuilder $filterBuilder
  * @param \Magento\Framework\Api\Search\FilterGroupBuilder $filterGroupBuilder
- * @param \Magento\Framework\Api\SortOrderFactory $sortOrder
+ * @param \Magento\Framework\Api\SortOrderFactory $sortOrderFactory
  */
 public function __construct(
     \Magento\Catalog\Api\ProductRepositoryInterface $productRepository,
     \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder,
     \Magento\Framework\Api\FilterBuilder $filterBuilder,
     \Magento\Framework\Api\Search\FilterGroupBuilder $filterGroupBuilder,
-    \Magento\Framework\Api\SortOrderFactory $sortOrder
+    \Magento\Framework\Api\SortOrderFactory $sortOrderFactory
 ) {
     $this->productRepository = $productRepository;
     $this->searchCriteriaBuilder = $searchCriteriaBuilder;
     $this->filterBuilder = $filterBuilder;
     $this->filterGroupBuilder = $filterGroupBuilder;
-    $this->sortOrder = $sortOrder;
+    $this->sortOrderFactory = $sortOrderFactory;
 }
 
 [...]
@@ -274,24 +274,24 @@ private $filterBuilder;
 /**
  * @var \Magento\Framework\Api\SortOrderFactory
  */
-private $sortOrder;
+private $sortOrderFactory;
 
 /**
  * @param \Magento\Catalog\Api\ProductRepositoryInterface $productRepository
  * @param \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder
  * @param \Magento\Framework\Api\FilterBuilder $filterBuilder
- * @param \Magento\Framework\Api\SortOrderFactory $sortOrder
+ * @param \Magento\Framework\Api\SortOrderFactory $sortOrderFactory
  */
 public function __construct(
     \Magento\Catalog\Api\ProductRepositoryInterface $productRepository,
     \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder,
     \Magento\Framework\Api\FilterBuilder $filterBuilder,
-    \Magento\Framework\Api\SortOrderFactory $sortOrder
+    \Magento\Framework\Api\SortOrderFactory $sortOrderFactory
 ) {
     $this->productRepository = $productRepository;
     $this->searchCriteriaBuilder = $searchCriteriaBuilder;
     $this->filterBuilder = $filterBuilder;
-    $this->sortOrder = $sortOrder;
+    $this->sortOrderFactory = $sortOrderFactory;
 }
 
 /**
@@ -322,7 +322,8 @@ public function retrieve(
         $this->searchCriteriaBuilder->addFilter('entity_id', $excludedIds, 'nin');
     }
 
-    $sortOrder = $this->sortOrder->setField('updated_at')
+    $sortOrder = $this->sortOrderFactory->create()
+        ->setField('updated_at')
         ->setDirection(\Magento\Framework\Api\SortOrder::SORT_DESC);
     $this->searchCriteriaBuilder->setSortOrders([$sortOrder]);
 
