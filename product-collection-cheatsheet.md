@@ -129,6 +129,16 @@ $collection->addAttributeToFilter([
 ]);
 ```
 
+```php
+$collection->addFieldToFilter([
+    ['download_link', 'download_link'],
+    [
+        ['is' => new \Zend_Db_Expr('null')],
+        ['eq' => '']
+    ],
+]);
+```
+
 ## In Stock Filter
 
 ```php
