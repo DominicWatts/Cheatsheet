@@ -252,9 +252,11 @@ public function getProducts(array $productIds): array
 \Magento\Catalog\Api\Data\ProductInterface::MEDIA_GALLERY
 \Magento\Catalog\Api\Data\ProductInterface::TIER_PRICE
 
-Magento\CatalogInventory\Api\Data\StockItemInterface::QTY
-Magento\CatalogInventory\Api\Data\StockItemInterface::IS_IN_STOCK
-Magento\CatalogInventory\Api\Data\StockItemInterface::BACKORDERS
+\Magento\CatalogInventory\Api\Data\StockItemInterface::QTY
+\Magento\CatalogInventory\Api\Data\StockItemInterface::IS_IN_STOCK
+\Magento\CatalogInventory\Api\Data\StockItemInterface::BACKORDERS
+
+\Magento\Eav\Model\Entity::DEFAULT_ENTITY_ID_FIELD
 ```
 
 ## Advanced Search
