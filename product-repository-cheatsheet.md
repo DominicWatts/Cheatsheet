@@ -52,6 +52,13 @@ public function __construct(
 \Magento\Catalog\Model\Product\Visibility::VISIBILITY_BOTH
 ```
 
+## Product Status
+
+```xml
+\Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_ENABLED
+\Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_DISABLED
+```
+
 ## Get info about product by product SKU
 
 ```text
