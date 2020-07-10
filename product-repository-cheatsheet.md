@@ -59,6 +59,14 @@ public function __construct(
 \Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_DISABLED
 ```
 
+## Scope
+
+```php
+\Magento\Store\Model\Store::DEFAULT_STORE_ID
+\Magento\Store\Model\Store::PRICE_SCOPE_GLOBAL
+\Magento\Store\Model\Store::PRICE_SCOPE_WEBSITE
+```
+
 ## Get info about product by product SKU
 
 ```text
