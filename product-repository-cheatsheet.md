@@ -43,6 +43,15 @@ public function __construct(
 \Magento\GroupedProduct\Model\Product\Type\Grouped::TYPE_CODE
 ```
 
+## Product Visibility
+
+```php
+\Magento\Catalog\Model\Product\Visibility::VISIBILITY_NOT_VISIBLE
+\Magento\Catalog\Model\Product\Visibility::VISIBILITY_IN_CATALOG
+\Magento\Catalog\Model\Product\Visibility::VISIBILITY_IN_SEARCH
+\Magento\Catalog\Model\Product\Visibility::VISIBILITY_BOTH
+```
+
 ## Get info about product by product SKU
 
 ```text
