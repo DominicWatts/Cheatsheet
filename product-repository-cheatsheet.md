@@ -54,7 +54,7 @@ public function __construct(
 
 ## Product Status
 
-```xml
+```php
 \Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_ENABLED
 \Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_DISABLED
 ```
