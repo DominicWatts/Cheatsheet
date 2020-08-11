@@ -154,7 +154,7 @@ public function __construct(
 }
 
 [...]
-$this->stockFilter->addInStockFilterToCollection($collection);
+$this->stockHelper->addInStockFilterToCollection($collection);
 [...]
 ```
 
