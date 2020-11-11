@@ -4,7 +4,6 @@
 
 ```php
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory as ProductCollectionFactory;
-Constructor
 
 /**
  * @var ProductCollectionFactory
@@ -49,6 +48,11 @@ public function __construct(
 [...]
 $collection->setVisibility($this->productVisibility->getVisibleInSiteIds());
 [...]
+```
+## Create
+
+```php
+$collection = $this->productCollectionFactory->create();
 ```
 
 ## Filters
@@ -167,39 +171,33 @@ $collection->getPriceStandardDeviation();
 $collection->getPricesCount();
 ```
 
-## Create
-
-```text
-$collection = $this->productCollectionFactory->create();
-```
-
 ## Filter by Product ID
 
-```text
+```php
 $collection->addIdFilter($productId);
 ```
 
 ## Filter by Store ID
 
-```text
+```php
 $collection->addStoreFilter($storeId);
 ```
 
 ## Select Attribute
 
-```text
+```php
 $collection->addAttributeToSelect($attributeCode);
 ```
 
 ## Get first item
 
-```text
+```php
 return $collection->getFirstItem();
 ```
 
 ## Get raw attribute value
 
-```text
+```php
 return $collection->getFirstItem()->getData($attributeCode);
 ```
 
@@ -227,13 +225,13 @@ $collection->addAttributeToFilter(
 
 ## Category Filter
 
-```text
+```php
 $collection->addCategoryFilter($category);
 ```
 
 ## Return only IDs
 
-```text
+```php
 return $collection->getAllIds();
 ```
 
@@ -246,7 +244,7 @@ $collection->printLogQuery(true);
 
 ## Add Media
 
-```text
+```php
 $collection->addMediaGalleryData();
 ```
 
@@ -259,13 +257,13 @@ $collection->addTierPriceDataByGroupId($customerGroupId);
 
 ## Add Category IDs
 
-```text
+```php
 $collection->addCategoryIds();
 ```
 
 ## Add Website Names
 
-```text
+```php
 $collection->addWebsiteNamesToResult();
 ```
 
@@ -305,31 +303,31 @@ $collection->count();
 
 ## Add URL data
 
-```text
+```php
 $collection->addUrlRewrite($categoryId);
 ```
 
 ## Add Tax Percents
 
-```text
+```php
 $collection->addTaxPercents();
 ```
 
 ## Add Options
 
-```text
+```php
 $collection->addOptionsToResult();
 ```
 
 ## Add Sort
 
-```text
+```php
 $collection->addAttributeToSort('name', 'DESC');
 ```
 
 ## Free Up Memory
 
-```text
+```php
 $collection->clear();
 ```
 
