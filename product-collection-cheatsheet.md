@@ -187,6 +187,23 @@ $collection->addStoreFilter($storeId);
 
 ```php
 $collection->addAttributeToSelect($attributeCode);
+$collection->addAttributeToSelect('*'); // all
+```
+Configured
+
+```
+use Magento\Catalog\Model\Config;
+public function __construct(
+    [...]
+    Config $config
+    [...]
+} {
+    $this->config = $config;
+}
+
+$attributes = $this->config->getProductAttributes();
+$collection->addAttributeToSelect($attributes);
+
 ```
 
 ## Get first item
