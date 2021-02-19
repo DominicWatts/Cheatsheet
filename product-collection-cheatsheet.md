@@ -191,7 +191,7 @@ $collection->addAttributeToSelect('*'); // all
 ```
 Configured
 
-```
+```php
 use Magento\Catalog\Model\Config;
 public function __construct(
     [...]
