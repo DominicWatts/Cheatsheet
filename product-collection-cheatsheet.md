@@ -143,6 +143,16 @@ $collection->addFieldToFilter([
 ]);
 ```
 
+```php
+$collection->addFieldToFilter(
+    ['download_link', 'download_link'],
+    [
+        ['null' => true],
+        ['eq' => '']
+    ]
+);
+```
+
 ## In Stock Filter
 
 ```php
