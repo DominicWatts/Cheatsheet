@@ -313,12 +313,19 @@ $collection->joinField(
 // Sort Collection
 // Order by Attribute Ascending
 $collection->setOrder('price', 'ASC');
+// or 
+$collection->getSelect()->order('price ASC');
 
 // Order by Attribute Descending
 $collection->setOrder('name', 'DESC');
+// or 
+$collection->getSelect()->order('name DESC');
 
 // Random Order
 $collection->setOrder('rand()');
+
+// reset
+$collection->getSelect()->reset('order');
 
 // Limit Collection
 $collection->setPageSize(10);
