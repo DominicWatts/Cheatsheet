@@ -321,6 +321,9 @@ $collection->setOrder('name', 'DESC');
 // or 
 $collection->getSelect()->order('name DESC');
 
+// Magento\Catalog\Model\ResourceModel\Product\Collection
+$collection->addAttributeToSort('is_saleable', 'ASC');
+
 // Random Order
 $collection->setOrder('rand()');
 
