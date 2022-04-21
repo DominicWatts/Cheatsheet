@@ -118,7 +118,7 @@ $collection->addAttributeToFilter(
 );
 ```
 
-### Even more complex filter
+## Even more complex filter
 
 ```php
 $collection->addPriceData();
