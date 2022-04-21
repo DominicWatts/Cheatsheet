@@ -120,7 +120,7 @@ $collection->addAttributeToFilter(
 
 ### Even more complex filter
 
-```
+```php
 $collection->addPriceData();
 [...]
 $complexCollection = clone $collection;
