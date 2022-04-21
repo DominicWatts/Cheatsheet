@@ -118,6 +118,19 @@ $collection->addAttributeToFilter(
 );
 ```
 
+### Even more complex filter
+
+```
+$collection->addPriceData();
+[...]
+$complexCollection = clone $collection;
+$complexCollection->getSelect()
+    ->where('price_index.min_price >= 100')
+    ->where('price_index.min_price <= 200');
+$ids = $complexCollection->getAllIds();
+$collection->addAttributeToFilter('entity_id', array('in' => $ids));
+```
+
 ## Or filter
 
 ```php
