@@ -1,4 +1,4 @@
-# Product Collection Cheatsheet
+# Category Collection Cheatsheet
 
 ## Import statement
 
