@@ -14,7 +14,7 @@ protected $categoryCollectionFactory;
  * @param CategoryCollectionFactory $productCollectionFactory
  */
 public function __construct(
-    CategoryCollectionFactory $productCollectionFactory
+    CategoryCollectionFactory $categoryCollectionFactory
 ) {
     $this->categoryCollectionFactory = $categoryCollectionFactory;
 }
