@@ -339,6 +339,10 @@ $collection->addAttributeToSort('is_saleable', 'ASC');
 
 // Random Order
 $collection->setOrder('rand()');
+// Random Order product collection factory
+$collection->getSelect()->orderRand();
+// reset
+$collection->getSelect()->reset('order');
 
 // reset
 $collection->getSelect()->reset('order');
